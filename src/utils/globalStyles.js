@@ -9,23 +9,22 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
 }
-
-html, body
+html, body, #root
 {
-    height: "100%";
+    height: 100%;
 }
 `;
 
 export const FontStyles = createGlobalStyle`
 
 @font-face {
-font-family: 'Gotham Book';
-src: url(${GothamBookWoff2}) format('woff2'),
+    font-family: 'Gotham Book';
+    src: url(${GothamBookWoff2}) format('woff2'),
 }
 
 @font-face {
-font-family: 'Gotham Bold';
-src: url(${GothamBoldWoff2}) format('woff2');
-font-weight: bold;
+    font-family: 'Gotham Bold';
+    src: url(${GothamBoldWoff2}) format('woff2');
+    font-weight: bold;
 }
 `;
