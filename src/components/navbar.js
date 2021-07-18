@@ -22,7 +22,7 @@ const Wrapper = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  height: 100vh;
   width: 7%;
   border-top: 3px solid;
   border-bottom: 3px solid;
