@@ -24,6 +24,7 @@ const Wrapper = styled.nav`
   justify-content: space-between;
   height: 100vh;
   width: 7%;
+  max-width: 71px;
   border-top: 3px solid;
   border-bottom: 3px solid;
   border-left-width: 0;
@@ -31,62 +32,54 @@ const Wrapper = styled.nav`
   border-image: linear-gradient(to right, #00e1ff, #117eff) 1;
 `;
 
-const TopSection = styled.div``;
-
-const BottomSection = styled.div``;
-
-const IconWapper = styled.div`
-  display: flex;
-  margin: 20px 0px;
-  flex-direction: column;
+const Section = styled.div`
+  > * {
+    margin: 15px;
+  }
 `;
 
 export default function Navbar() {
   return (
     <Wrapper>
-      <TopSection>
-        <IconWapper>
-          <ToolTip text={"Análises"}>
-            <ChartPie />
-          </ToolTip>
+      <Section>
+        <ToolTip text={"Análises"}>
+          <ChartPie />
+        </ToolTip>
 
-          <ToolTip text={"Jornadas"}>
-            <Rocket />
-          </ToolTip>
+        <ToolTip text={"Jornadas"}>
+          <Rocket />
+        </ToolTip>
 
-          <ToolTip text={"Clientes"}>
-            <UserFriends />
-          </ToolTip>
-          <ToolTip text={"CCM Cloud"}>
-            <CCMCloud />
-          </ToolTip>
-        </IconWapper>
+        <ToolTip text={"Clientes"}>
+          <UserFriends />
+        </ToolTip>
+        <ToolTip text={"CCM Cloud"}>
+          <CCMCloud />
+        </ToolTip>
+
         <Divider />
-        <IconWapper>
-          <ToolTip text={"Versão 01"}>
-            <ExternalLinkSquareAlt />
-          </ToolTip>
-        </IconWapper>
-      </TopSection>
-      <BottomSection>
-        <IconWapper>
-          <ToolTip text={"Administração"}>
-            <GemSolid />
-          </ToolTip>
 
-          <ToolTip text={"Help Desk"}>
-            <Tools />
-          </ToolTip>
+        <ToolTip text={"Versão 01"}>
+          <ExternalLinkSquareAlt />
+        </ToolTip>
+      </Section>
+      <Section>
+        <ToolTip text={"Administração"}>
+          <GemSolid />
+        </ToolTip>
 
-          <ToolTip text={"Trocar Conta"}>
-            <Exchange />
-          </ToolTip>
+        <ToolTip text={"Help Desk"}>
+          <Tools />
+        </ToolTip>
 
-          <ToolTip text={"Sair"}>
-            <SignOut />
-          </ToolTip>
-        </IconWapper>
-      </BottomSection>
+        <ToolTip text={"Trocar Conta"}>
+          <Exchange />
+        </ToolTip>
+
+        <ToolTip text={"Sair"}>
+          <SignOut />
+        </ToolTip>
+      </Section>
     </Wrapper>
   );
 }
