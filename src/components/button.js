@@ -5,13 +5,20 @@ const Wrapper = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Gotham Bold";
-  font-weight: bold;
   padding: 3px 20px;
   border: none;
   border-radius: 3px;
   color: white;
   background-color: #117eff;
+
+  span {
+    font-size: 13px;
+    font-family: "Gotham Bold";
+  }
+
+  &:hover {
+    background-image: linear-gradient(to left, #117eff, #3fd7fc);
+  }
 `;
 
 export default function Button({ children, value, ...props }) {

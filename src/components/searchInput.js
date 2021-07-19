@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   border: 1px solid #cccfde;
   align-items: center;
   border-radius: 5px;
-  max-width: 296px;
+  width: 296px;
 
   &:hover {
     box-shadow: 0px 5px 10px -4px rgba(0, 0, 0, 0.3);

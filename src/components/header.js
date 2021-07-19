@@ -11,19 +11,11 @@ const Wrapper = styled.header`
   justify-content: space-between;
 `;
 
-const LeftSide = styled.div`
+const Section = styled.div`
   display: flex;
   color: white;
-`;
-
-const RightSide = styled.div`
-  display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const InputContainer = styled.div`
-  margin-right: 20px;
 `;
 
 const Logo = styled.img`
@@ -31,21 +23,26 @@ const Logo = styled.img`
   max-height: 24px;
 `;
 
+const InputWrapper = styled.div`
+  margin-right: 5px;
+`;
+
 export default function Header() {
   return (
     <Wrapper>
-      <LeftSide>
+      <Section>
         <Avatar color="#117EFF" text="A"></Avatar>
         <Logo src={logo} />
-      </LeftSide>
-      <RightSide>
-        <InputContainer>
+      </Section>
+      <Section>
+        <InputWrapper>
           <SearchInput />
-        </InputContainer>
+        </InputWrapper>
+
         <Button value={"Nova Jornada"}>
           <Plus />
         </Button>
-      </RightSide>
+      </Section>
     </Wrapper>
   );
 }
