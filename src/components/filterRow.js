@@ -9,6 +9,8 @@ const Wrapper = styled.div`
   margin-top: 10px;
   color: #3e4157;
   font-size: 13px;
+  font-weight: ${(props) => props.selected && "Bold"};
+  cursor: pointer;
 `;
 
 const Icon = styled.div`
@@ -19,21 +21,32 @@ const Icon = styled.div`
 const Text = styled.span`
   display: flex;
   flex: 4;
+  color: ${(props) => props.selected && "#117EFF"};
 `;
 
 const Value = styled.div`
   display: flex;
   flex: 4;
-  color: #9196ab;
+  color: ${(props) => (props.selected ? "white" : "#9196ab")};
 `;
 
-export default function FilterRow({ text, value, children, onClick }) {
+export default function FilterRow({
+  text,
+  value,
+  children,
+  selected,
+  onClick,
+}) {
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick} selected={selected}>
       <Icon>{children}</Icon>
-      <Text>{text}</Text>
-      <Value>
-        <Avatar color="#E4E6F1" size={22} text={value} />
+      <Text selected={selected}>{text}</Text>
+      <Value selected={selected}>
+        <Avatar
+          color={selected ? "#117EFF" : "#E4E6F1"}
+          size={22}
+          text={value}
+        />
       </Value>
     </Wrapper>
   );
