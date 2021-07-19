@@ -44,6 +44,12 @@ const TableContainer = styled.div`
   flex-grow: 7;
 `;
 
+const FilterTitle = styled.h1`
+  font-size: 16px;
+  font-family: "Gotham Bold";
+  color: #3e4157;
+  margin: 20px 0px;
+`;
 export default function Home() {
   const dispatch = useDispatch();
   const journeys = useSelector(selectJourneys);
@@ -63,6 +69,8 @@ export default function Home() {
         <Header />
         <Content>
           <FilterContainer>
+            <FilterTitle> Jornadas </FilterTitle>
+
             <Filter onClick={filter} filters={filters} selected={selected} />
           </FilterContainer>
 
