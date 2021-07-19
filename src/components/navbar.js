@@ -17,6 +17,7 @@ import {
 import ToolTip from "./tooltip";
 
 const Wrapper = styled.nav`
+  position: fixed;
   background-color: ${color.backgroundDarkPrimary};
   display: flex;
   flex-direction: column;

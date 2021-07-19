@@ -20,6 +20,7 @@ const Wrapper = styled.div`
   display: flex;
   flex: 1;
   min-height: 100%;
+  margin: 0 30px;
   background-color: ${color.backgroundLight};
 `;
 
@@ -63,44 +64,46 @@ export default function Home() {
     dispatch(fetchJourneys(id));
   }
   return (
-    <Wrapper>
-      <Navbar> Hello </Navbar>
-      <Container>
-        <Header />
-        <FilterTitle> Jornadas </FilterTitle>
+    <>
+      <Navbar />
+      <Wrapper>
+        <Container>
+          <Header />
+          <FilterTitle> Jornadas </FilterTitle>
 
-        <Content>
-          <FilterContainer>
-            <Filter onClick={filter} filters={filters} selected={selected} />
-          </FilterContainer>
+          <Content>
+            <FilterContainer>
+              <Filter onClick={filter} filters={filters} selected={selected} />
+            </FilterContainer>
 
-          <TableContainer>
-            <Table>
-              <tbody>
-                <tr>
-                  <th> Nome </th>
-                  <th> Destinatários </th>
-                  <th> Sucesso </th>
-                  <th> Status </th>
-                </tr>
-
-                {journeys.map((journey) => (
-                  <tr key={journey.id}>
-                    <td> {journey.name} </td>
-                    <td> {journey.recipients}</td>
-                    <td> {journey.success}</td>
-                    <td>
-                      {jorneyTypeStyle[journey.status].icon({
-                        color: jorneyTypeStyle[journey.status].color,
-                      })}
-                    </td>
+            <TableContainer>
+              <Table>
+                <tbody>
+                  <tr>
+                    <th> Nome </th>
+                    <th> Destinatários </th>
+                    <th> Sucesso </th>
+                    <th> Status </th>
                   </tr>
-                ))}
-              </tbody>
-            </Table>
-          </TableContainer>
-        </Content>
-      </Container>
-    </Wrapper>
+
+                  {journeys.map((journey) => (
+                    <tr key={journey.id}>
+                      <td> {journey.name} </td>
+                      <td> {journey.recipients}</td>
+                      <td> {journey.success}</td>
+                      <td>
+                        {jorneyTypeStyle[journey.status].icon({
+                          color: jorneyTypeStyle[journey.status].color,
+                        })}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </TableContainer>
+          </Content>
+        </Container>
+      </Wrapper>
+    </>
   );
 }
