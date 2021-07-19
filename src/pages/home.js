@@ -14,7 +14,7 @@ import {
   fetchJourneys,
   selectJourneys,
 } from "../store/reducers/journeyReducer";
-import { color } from "../utils/style";
+import { color, jorneyTypeStyle } from "../utils/style";
 
 const Wrapper = styled.div`
   display: flex;
@@ -33,7 +33,6 @@ const Container = styled.div`
 const Content = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 35px;
 `;
 
 const FilterContainer = styled.div`
@@ -44,11 +43,12 @@ const TableContainer = styled.div`
   flex-grow: 7;
 `;
 
-const FilterTitle = styled.h1`
+const FilterTitle = styled.div`
   font-size: 16px;
   font-family: "Gotham Bold";
   color: #3e4157;
-  margin: 20px 0px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 `;
 export default function Home() {
   const dispatch = useDispatch();
@@ -67,10 +67,10 @@ export default function Home() {
       <Navbar> Hello </Navbar>
       <Container>
         <Header />
+        <FilterTitle> Jornadas </FilterTitle>
+
         <Content>
           <FilterContainer>
-            <FilterTitle> Jornadas </FilterTitle>
-
             <Filter onClick={filter} filters={filters} selected={selected} />
           </FilterContainer>
 
@@ -89,7 +89,11 @@ export default function Home() {
                     <td> {journey.name} </td>
                     <td> {journey.recipients}</td>
                     <td> {journey.success}</td>
-                    <td> {journey.status} </td>
+                    <td>
+                      {jorneyTypeStyle[journey.status].icon({
+                        color: jorneyTypeStyle[journey.status].color,
+                      })}
+                    </td>
                   </tr>
                 ))}
               </tbody>

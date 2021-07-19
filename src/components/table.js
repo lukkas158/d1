@@ -5,13 +5,13 @@ const Wrapper = styled.table`
   font-size: 13px;
   border-collapse: separate;
   border-spacing: 0 10px;
-  text-align: center;
+  text-align: left;
   width: 100%;
   color: #3e4157;
 
   td {
     background-color: white;
-    padding: 5px 0px;
+    padding: 16px 0px;
   }
   td:first-child {
     border-top-left-radius: 6px;
@@ -26,6 +26,7 @@ const Wrapper = styled.table`
   }
   th {
     color: #9196ab;
+    font-weight: normal;
   }
 `;
 
