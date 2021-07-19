@@ -35,6 +35,11 @@ const Wrapper = styled.nav`
 const Section = styled.div`
   > * {
     margin: 15px;
+    color: #e4e6f1;
+  }
+
+  > *:hover {
+    color: blue;
   }
 `;
 
