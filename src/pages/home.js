@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import Filter from "../components/filter";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import Table from "../components/table";
+import {
+  fetchFilters,
+  selectFilters,
+  setSelected,
+} from "../store/reducers/filterReducer";
+import {
+  fetchJourneys,
+  selectJourneys,
+} from "../store/reducers/journeyReducer";
 import { color } from "../utils/style";
 
 const Wrapper = styled.div`
@@ -35,6 +45,17 @@ const TableContainer = styled.div`
 `;
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const journeys = useSelector(selectJourneys);
+  const { filters, selected } = useSelector(selectFilters);
+
+  useEffect(() => dispatch(fetchJourneys()), []);
+  useEffect(() => dispatch(fetchFilters()), []);
+
+  function filter(id) {
+    dispatch(setSelected(id));
+    dispatch(fetchJourneys(id));
+  }
   return (
     <Wrapper>
       <Navbar> Hello </Navbar>
@@ -42,7 +63,7 @@ export default function Home() {
         <Header />
         <Content>
           <FilterContainer>
-            <Filter> Filter </Filter>
+            <Filter onClick={filter} filters={filters} selected={selected} />
           </FilterContainer>
 
           <TableContainer>
@@ -55,12 +76,14 @@ export default function Home() {
                   <th> Status </th>
                 </tr>
 
-                <tr>
-                  <td> Cobrança </td>
-                  <td> 210.000 </td>
-                  <td> 30%</td>
-                  <td> Enviando </td>
-                </tr>
+                {journeys.map((journey) => (
+                  <tr key={journey.id}>
+                    <td> {journey.name} </td>
+                    <td> {journey.recipients}</td>
+                    <td> {journey.success}</td>
+                    <td> {journey.status} </td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
           </TableContainer>
